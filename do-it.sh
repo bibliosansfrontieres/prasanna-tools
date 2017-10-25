@@ -10,6 +10,10 @@ make_pause() {
     read -p "Press <ENTER> to continue..."
 }
 
+check_storage_size() {
+    adb shell df 2>&1 | awk ' /data/ { print $2, "total,", $3, "free" } '
+}
+
 clean_user_files() {
     userfiles_size=$( adb shell du -sh /storage/emulated/0/ | awk '{ print $1 }' )
     edebug "User files total size: $userfiles_size"
@@ -46,6 +50,11 @@ remove_unwanted_packages() {
     done < packages_blacklist
 }
 
+
+edebug "Gathering informations"
+check_storage_size
+
+echo
 
 clean_user_files
 make_pause
