@@ -38,17 +38,16 @@ dump_installed_packages() {
 
 remove_unwanted_packages() {
     edebug "Removing unwanted packages"
-    while read bl_package ; do
-        edebug "Looking for ${bl_package}..."
-        egrep ^$bl_package$ installed_packages && {
+    for bl_package in $( cat packages_blacklist ) ; do
+        egrep ^$bl_package installed_packages -q
+        [[ $? -eq 0 ]] && {
             edebug "  Found ${bl_package} !"
             edebug "    Clear all associated data.."
-            echo adb shell pm clear $bl_package
+            adb shell pm clear $bl_package
             edebug "    Uninstalling..."
-            echo adb uninstall $bl_package
-            make_pause
+            adb uninstall $bl_package
         }
-    done < packages_blacklist
+    done
 }
 
 push_backup() {
