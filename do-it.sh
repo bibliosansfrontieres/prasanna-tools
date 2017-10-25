@@ -73,11 +73,8 @@ case "$1" in
 		check_storage_size
 		echo
 		clean_user_files
-		make_pause
 		push_wallpapers
-		make_pause
 		dump_installed_packages
-		make_pause
 		remove_unwanted_packages
 		make_pause
 		push_backup
