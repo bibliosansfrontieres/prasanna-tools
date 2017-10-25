@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DEBUGMODE=${DEBUGMODE:-1}
+BACKUPFILE="/home/tom/GRC/master-tdh4.ab"
 
 edebug() {
     [[ $DEBUGMODE -eq 1 ]] && echo "[+] $@" >&2
@@ -50,6 +51,11 @@ remove_unwanted_packages() {
     done < packages_blacklist
 }
 
+push_backup() {
+    edebug "Push the backup at $( date '+%H:%M:%S' )"
+    time adb restore $BACKUPFILE
+    edebug "    ...Finished at $( date '+%H:%M:%S' )"
+}
 
 edebug "Gathering informations"
 check_storage_size
@@ -63,3 +69,6 @@ make_pause
 dump_installed_packages
 make_pause
 remove_unwanted_packages
+make_pause
+
+push_backup
