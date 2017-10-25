@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# dump installed packages
+adb shell pm list packages | sed -e 's/^package://' > installed_packages
+
+
 
 
 userfiles_size=$( adb shell du -sh /storage/emulated/0/ | awk '{ print $1 }' )
