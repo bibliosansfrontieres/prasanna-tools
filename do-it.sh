@@ -42,8 +42,8 @@ clean_user_files() {
 
 push_wallpapers() {
     edebug "  Pushing wallpapers..."
-    adb shell mkdir /storage/emulated/0/DCIM
-    adb push wallpapers/fd-koombook.jpg wallpapers/learn-farsi-arabe-anglais.png wallpapers/create-farsi-arabe-anglais.png wallpapers/information-farsi-arabe-anglais.png wallpapers/play-farsi-arabe-anglais.png /storage/emulated/0/DCIM/ > /dev/null
+    adb shell mkdir /storage/emulated/0/Download
+    adb push wallpapers/fd-koombook.jpg wallpapers/learn-farsi-arabe-anglais.png wallpapers/create-farsi-arabe-anglais.png wallpapers/information-farsi-arabe-anglais.png wallpapers/play-farsi-arabe-anglais.png /storage/emulated/0/Download/ > /dev/null
 }
 
 dump_installed_packages() {
