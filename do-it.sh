@@ -58,33 +58,33 @@ push_backup() {
 
 
 case "$1" in
-	clean_user_files|push_wallpapers|dump_installed_packages|remove_unwanted_packages|push_backups)
-		$1
-		;;
-	info)
-		check_storage_size
-		;;
-	packages)
-		dump_installed_packages
-		remove_unwanted_packages
-		;;
+    clean_user_files|push_wallpapers|dump_installed_packages|remove_unwanted_packages|push_backups)
+        $1
+        ;;
+    info)
+        check_storage_size
+        ;;
+    packages)
+        dump_installed_packages
+        remove_unwanted_packages
+        ;;
     userfiles)
         check_storage_size
         clean_user_files
         ;;
-	all)
-		edebug "Gathering informations"
-		check_storage_size
-		echo
-		clean_user_files
-		push_wallpapers
-		dump_installed_packages
-		remove_unwanted_packages
+    all)
+        edebug "Gathering informations"
+        check_storage_size
+        echo
+        clean_user_files
+        push_wallpapers
+        dump_installed_packages
+        remove_unwanted_packages
         edebug "Backup file: $BACKUPFILE"
-		make_pause
-		push_backup
-		;;
-	*)
+        make_pause
+        push_backup
+        ;;
+    *)
         echo "Error: unknown action: $1" >&2
         exit 1
         ;;
