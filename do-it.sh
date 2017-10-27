@@ -69,7 +69,7 @@ remove_unwanted_packages() {
 
 push_backup() {
     edebug "Push the backup at $( date '+%H:%M:%S' )"
-    time adb restore $BACKUPFILE
+    time adb restore $BACKUPFILE && aplay woohoo.wav
     edebug "    ...Finished at $( date '+%H:%M:%S' )"
 }
 
