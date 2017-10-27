@@ -7,6 +7,23 @@ edebug() {
     [[ $DEBUGMODE -eq 1 ]] && echo "[+] $@" >&2
 }
 
+show_usage() {
+    echo "Usage: `basename $0` <action>
+
+Actions:
+    clean_user_files
+    push_wallappers
+    dump_installed_packages
+    remove_unwanted_packages
+    push_backups
+
+    info
+    packages
+    userfiles
+"
+}
+
+
 make_pause() {
     read -p "Press <ENTER> to continue..."
 }
@@ -56,6 +73,13 @@ push_backup() {
     edebug "    ...Finished at $( date '+%H:%M:%S' )"
 }
 
+
+# check
+[ $# -lt 1 ] && {
+    echo "Error: missing argument." >&2
+    show_usage
+    exit 1
+}
 
 case "$1" in
     clean_user_files|push_wallpapers|dump_installed_packages|remove_unwanted_packages|push_backups)
