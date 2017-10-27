@@ -80,6 +80,7 @@ case "$1" in
 		push_wallpapers
 		dump_installed_packages
 		remove_unwanted_packages
+        edebug "Backup file: $BACKUPFILE"
 		make_pause
 		push_backup
 		;;
