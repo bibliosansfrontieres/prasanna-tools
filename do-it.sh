@@ -68,6 +68,10 @@ case "$1" in
 		dump_installed_packages
 		remove_unwanted_packages
 		;;
+    userfiles)
+        check_storage_size
+        clean_user_files
+        ;;
 	all)
 		edebug "Gathering informations"
 		check_storage_size
