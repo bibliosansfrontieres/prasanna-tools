@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEBUGMODE=${DEBUGMODE:-1}
-BACKUPFILE="/home/tom/GRC/master-tdh.ab"
+BACKUPFILE="/home/tom/GRC/master-malakasa.ab"
 
 edebug() {
     [[ $DEBUGMODE -eq 1 ]] && echo "[+] $@" >&2
