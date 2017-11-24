@@ -68,6 +68,10 @@ remove_unwanted_packages() {
 }
 
 push_backup() {
+    [ -r $BACKUPFILE ] || {
+        echo "Error: unable to read \$BACKUPFILE: $BACKUPFILE" >&2
+        exit 2
+    }
     edebug "Push the backup at $( date '+%H:%M:%S' )"
     time adb restore $BACKUPFILE && aplay woohoo.wav
     edebug "    ...Finished at $( date '+%H:%M:%S' )"
