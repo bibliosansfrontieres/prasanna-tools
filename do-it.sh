@@ -78,12 +78,18 @@ push_backup() {
 }
 
 
-# check
+# checks
 [ $# -lt 1 ] && {
     echo "Error: missing argument." >&2
     show_usage
     exit 1
 }
+
+command -v adb > /dev/null 2>&1 || {
+    echo "Error: adb(1) not found." >&2
+    exit 3
+}
+
 
 case "$1" in
     clean_user_files|push_wallpapers|dump_installed_packages|remove_unwanted_packages|push_backups)
