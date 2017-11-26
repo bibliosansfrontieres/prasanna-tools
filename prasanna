@@ -16,6 +16,7 @@ Actions:
     dump_installed_packages
     remove_unwanted_packages
     push_backups
+    all
 
     info
     packages
