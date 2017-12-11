@@ -73,6 +73,10 @@ push_backup() {
         echo "Error: unable to read \$BACKUPFILE: $BACKUPFILE" >&2
         exit 2
     }
+    strings $BACKUPFILE | head -n 1 | fgrep -q 'ANDROID BACKUP' || {
+        echo "Error: \$BACKUPFILE is not a valid Android backup file: $BACKUPFILE" >&2
+        exit 12
+    }
     edebug "Push the backup at $( date '+%H:%M:%S' )"
     time adb restore $BACKUPFILE && aplay woohoo.wav
     edebug "    ...Finished at $( date '+%H:%M:%S' )"
