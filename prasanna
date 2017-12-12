@@ -11,16 +11,17 @@ show_usage() {
     echo "Usage: `basename $0` <action>
 
 Actions:
+    info
+    packages
+    userfiles
+    push_backups
+    all
+
+Background subcommands:
     clean_user_files
     push_wallappers
     dump_installed_packages
     remove_unwanted_packages
-    push_backups
-    all
-
-    info
-    packages
-    userfiles
 "
 }
 
