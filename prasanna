@@ -124,8 +124,12 @@ case "$1" in
         make_pause
         push_backup
         ;;
+    help|--help|-h)
+        show_usage
+        ;;
     *)
         echo "Error: unknown action: $1" >&2
+        show_usage
         exit 1
         ;;
 esac
