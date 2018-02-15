@@ -32,7 +32,7 @@ We Linux users only need the binary.
 
 * Go to https://developer.android.com/studio/releases/platform-tools.html
 * Download the [SDK Platform-Tools for
-  Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+  Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 * extract the needed binary: `unzip platform-tools-latest-linux.zip platform-tools/adb`
 * Move that to somewhere in PATH: `mv platform-tools/adb /usr/local/bin/
   && rmdir platform-tools`
