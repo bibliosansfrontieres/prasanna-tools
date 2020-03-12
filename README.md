@@ -1,5 +1,7 @@
 # Prasanna
 
+**Warning**: This repository has been moved to [GitLab](https://gitlab.com/bibliosansfrontieres/mdm/prasanna-tools).
+
 Prasanna automates some house cleaning operations we sometimes need to
 perform on tablets that were shipped within a project a long time ago.
 
